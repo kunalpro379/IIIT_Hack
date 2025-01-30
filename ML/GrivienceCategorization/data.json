@@ -1,0 +1,487 @@
+[
+
+    {
+        "id": "GR2023090009",
+        "citizenName": "रमेश यादव",
+        "contactNumber": "7654321098",
+        "email": "ramesh.yadav@example.com",
+        "title": "सिंचाई नहर की मरम्मत",
+        "description": "किसानों की फसल को पानी नहीं मिल रहा है। नहर टूटी हुई है और मरम्मत की आवश्यकता है।",
+        "category": "Irrigation",
+        "subcategory": "Canal Maintenance",
+        "urgencyLevel": "High",
+        "submissionDate": "2023-09-28T11:00:00Z",
+        "lastUpdatedDate": "2023-09-28T16:00:00Z",
+        "district": "मेरठ",
+        "tehsil": "मेरठ सदर",
+        "ward": "शास्त्री नगर",
+        "pincode": "250001",
+        "gpsCoordinates": {
+          "latitude": 28.9845,
+          "longitude": 77.7064
+        },
+        "departmentAssigned": "Irrigation and Water Resource Department",
+        "status": "InProgress",
+        "escalationLevel": 1,
+        "expectedResolutionDate": "2023-09-30T16:00:00Z",
+        "attachments": [
+          {
+            "fileUrl": "https://storage.igrs.up.gov.in/attachments/GR2023090009_1.jpg",
+            "fileType": "image/jpeg",
+            "uploadDate": "2023-09-28T11:02:00Z"
+          }
+        ],
+        "sentimentScore": -0.7,
+        "priorityScore": 85,
+        "keywordsTags": ["सिंचाई", "नहर", "कृषि"],
+        "categoryPrediction": "Irrigation",
+        "estimatedResolutionTime": 5,
+        "createdAt": "2023-09-28T11:00:00Z",
+        "updatedAt": "2023-09-28T16:00:00Z",
+        "auditLog": [
+          {
+            "timestamp": "2023-09-28T11:00:00Z",
+            "action": "Grievance Submitted",
+            "performedBy": "Citizen",
+            "details": "Grievance submitted through mobile app"
+          },
+          {
+            "timestamp": "2023-09-28T16:00:00Z",
+            "action": "Inspection Scheduled",
+            "performedBy": "Irrigation Officer",
+            "details": "Inspection team dispatched"
+          }
+        ],
+        "languagePreference": "Hindi",
+        "isAnonymous": false,
+        "relatedPolicies": ["National Irrigation Policy", "UP Water Conservation Act"],
+        "impactedPopulation": 2000,
+        "recurrenceFrequency": "First occurrence",
+        "budgetEstimate": 10000,
+        "sdgGoals": ["SDG 2: Zero Hunger", "SDG 6: Clean Water and Sanitation"],
+        "mediaAttention": true,
+        "politicalSensitivity": 4,
+        "communitySupport": 85,
+        "historicalData": {
+          "previousOccurrences": 0,
+          "averageResolutionTime": null,
+          "successRate": null
+        },
+        "accessibilityNeeds": ["Accessible pathways for inspection teams"],
+        "preferredContactMethod": "Phone",
+        "feedbackFollowUpDate": "2023-10-01T00:00:00Z",
+        "citizenSatisfactionIndex": null,
+        "resolutionQualityScore": null,
+        "environmentalImpact": "Water wastage",
+        "economicImpact": "Crop yield reduction",
+        "socialImpact": "Farmer distress",
+        "aiRecommendations": [
+          "Immediate canal repair",
+          "Regular maintenance schedule"
+        ],
+        "trendAnalysis": {
+          "trend": "isolated_incident",
+          "confidenceScore": 0.75
+        },
+        "predictiveMaintenance": {
+          "nextPredictedOccurrence": null,
+          "preventiveMeasures": ["Regular canal inspections", "Community awareness programs"]
+        },
+        "crossDepartmentCollaboration": ["Agriculture Department", "Water Resources"],
+        "linkedServiceRequests": ["SR2023090090"],
+        "citizenProfile": {
+          "governmentId": "AADHAAR-XXXX-XXXX-7890",
+          "demographicSegment": "Rural farmer",
+          "serviceHistory": ["Agricultural Subsidies", "Water Supply Services"]
+        }
+      },
+    {
+      "id": "GR2023090003",
+      "citizenName": "अमित सिंह",
+      "contactNumber": "7654321098",
+      "email": "amit.singh@example.com",
+      "title": "खुला हुआ मैनहोल",
+      "description": "मेरे घर के पास एक खुला हुआ मैनहोल है जो बच्चों और पैदल चलने वालों के लिए खतरनाक है। कृपया इसे जल्द से जल्द ढंकें।",
+      "category": "सीवरेज",
+      "subcategory": "मैनहोल सुरक्षा",
+      "urgencyLevel": "Critical",
+      "submissionDate": "2023-09-18T14:20:00Z",
+      "lastUpdatedDate": "2023-09-19T10:00:00Z",
+      "district": "वाराणसी",
+      "tehsil": "वाराणसी सदर",
+      "ward": "भेलूपुर",
+      "pincode": "221001",
+      "gpsCoordinates": {
+        "latitude": 25.3176,
+        "longitude": 82.9739
+      },
+      "departmentAssigned": "जल निगम",
+      "status": "InProgress",
+      "escalationLevel": 2,
+      "expectedResolutionDate": "2023-09-20T00:00:00Z",
+      "attachments": [
+        {
+          "fileUrl": "https://storage.igrs.up.gov.in/attachments/GR2023090003_1.jpg",
+          "fileType": "image/jpeg",
+          "uploadDate": "2023-09-18T14:22:00Z"
+        },
+        {
+          "fileUrl": "https://storage.igrs.up.gov.in/attachments/GR2023090003_2.mp4",
+          "fileType": "video/mp4",
+          "uploadDate": "2023-09-18T14:23:00Z"
+        }
+      ],
+      "sentimentScore": -0.9,
+      "priorityScore": 95,
+      "keywordsTags": ["मैनहोल", "सुरक्षा", "बच्चे", "खतरा"],
+      "categoryPrediction": "सीवरेज",
+      "estimatedResolutionTime": 2,
+      "createdAt": "2023-09-18T14:20:00Z",
+      "updatedAt": "2023-09-19T10:00:00Z",
+      "auditLog": [
+        {
+          "timestamp": "2023-09-18T14:20:00Z",
+          "action": "Grievance Submitted",
+          "performedBy": "Citizen",
+          "details": "Grievance submitted through mobile app"
+        },
+        {
+          "timestamp": "2023-09-18T15:00:00Z",
+          "action": "Assigned to Department",
+          "performedBy": "System",
+          "details": "Automatically assigned to Jal Nigam based on category"
+        },
+        {
+          "timestamp": "2023-09-19T10:00:00Z",
+          "action": "Status Updated",
+          "performedBy": "Jal Nigam Officer",
+          "details": "Status changed to In Progress. Emergency team dispatched."
+        }
+      ],
+      "languagePreference": "Hindi",
+      "isAnonymous": false,
+      "relatedPolicies": ["उत्तर प्रदेश जल नीति"],
+      "impactedPopulation": 500,
+      "recurrenceFrequency": "पहली बार रिपोर्ट किया गया",
+      "budgetEstimate": 10000,
+      "sdgGoals": ["SDG 6: स्वच्छ जल और स्वच्छता", "SDG 11: सतत शहर और समुदाय"],
+      "mediaAttention": false,
+      "politicalSensitivity": 4,
+      "communitySupport": 75,
+      "historicalData": {
+        "previousOccurrences": 0,
+        "averageResolutionTime": null,
+        "successRate": null
+      },
+      "accessibilityNeeds": ["दृष्टिबाधित व्यक्तियों के लिए सुरक्षा उपाय"],
+      "preferredContactMethod": "Phone",
+      "feedbackFollowUpDate": "2023-09-22T00:00:00Z",
+      "citizenSatisfactionIndex": null,
+      "resolutionQualityScore": null,
+      "environmentalImpact": "सीवेज का खुला बहाव",
+      "economicImpact": "स्थानीय व्यवसायों पर न्यूनतम प्रभाव",
+      "socialImpact": "समुदाय में सुरक्षा चिंताएं",
+      "aiRecommendations": ["तत्काल मैनहोल कवर लगाएं", "क्षेत्र में सभी मैनहोल की जांच करें"],
+      "trendAnalysis": {
+        "trend": "stable",
+        "confidenceScore": 0.7
+      },
+      "predictiveMaintenance": {
+        "nextPredictedOccurrence": null,
+        "preventiveMeasures": ["नियमित मैनहोल निरीक्षण", "सुरक्षा जागरूकता अभियान"]
+      },
+      "crossDepartmentCollaboration": ["नगर निगम", "यातायात विभाग"],
+      "linkedServiceRequests": ["SR2023090030"],
+      "citizenProfile": {
+        "governmentId": "AADHAAR-XXXX-XXXX-9012",
+        "demographicSegment": "शहरी मध्यम वर्ग",
+        "serviceHistory": ["पानी कनेक्शन", "प्रॉपर्टी टैक्स भुगतान"]
+      }
+    },
+
+    {
+      "id": "GR2023090006",
+      "citizenName": "John Smith",
+      "contactNumber": "9876543210",
+      "email": "john.smith@example.com",
+      "title": "Malfunctioning Traffic Signal",
+      "description": "The traffic signal at the intersection of MG Road and Park Street has been malfunctioning for the past three days. This is causing traffic jams and is dangerous for pedestrians.",
+      "category": "Traffic Management",
+      "subcategory": "Traffic Signal Issues",
+      "urgencyLevel": "High",
+      "submissionDate": "2023-09-28T08:45:00Z",
+      "lastUpdatedDate": "2023-09-29T10:00:00Z",
+      "district": "Lucknow",
+      "tehsil": "Lucknow",
+      "ward": "Hazratganj",
+      "pincode": "226001",
+      "gpsCoordinates": {
+        "latitude": 26.8467,
+        "longitude": 80.9462
+      },
+      "departmentAssigned": "Traffic Police",
+      "status": "InProgress",
+      "escalationLevel": 1,
+      "expectedResolutionDate": "2023-09-30T00:00:00Z",
+      "attachments": [
+        {
+          "fileUrl": "https://storage.igrs.up.gov.in/attachments/GR2023090006_1.jpg",
+          "fileType": "image/jpeg",
+          "uploadDate": "2023-09-28T08:47:00Z"
+        },
+        {
+          "fileUrl": "https://storage.igrs.up.gov.in/attachments/GR2023090006_2.mp4",
+          "fileType": "video/mp4",
+          "uploadDate": "2023-09-28T08:48:00Z"
+        }
+      ],
+      "sentimentScore": -0.7,
+      "priorityScore": 85,
+      "keywordsTags": ["traffic signal", "malfunction", "traffic jam", "pedestrian safety"],
+      "categoryPrediction": "Traffic Management",
+      "estimatedResolutionTime": 2,
+      "createdAt": "2023-09-28T08:45:00Z",
+      "updatedAt": "2023-09-29T10:00:00Z",
+      "auditLog": [
+        {
+          "timestamp": "2023-09-28T08:45:00Z",
+          "action": "Grievance Submitted",
+          "performedBy": "Citizen",
+          "details": "Grievance submitted through mobile app"
+        },
+        {
+          "timestamp": "2023-09-29T10:00:00Z",
+          "action": "Status Updated",
+          "performedBy": "Traffic Police Officer",
+          "details": "Technician dispatched to the location"
+        }
+      ],
+      "languagePreference": "English",
+      "isAnonymous": false,
+      "relatedPolicies": ["Uttar Pradesh Road Safety Policy"],
+      "impactedPopulation": 10000,
+      "recurrenceFrequency": "First occurrence",
+      "budgetEstimate": 15000,
+      "sdgGoals": ["SDG 11: Sustainable Cities and Communities", "SDG 3: Good Health and Well-being"],
+      "mediaAttention": false,
+      "politicalSensitivity": 2,
+      "communitySupport": 50,
+      "historicalData": {
+        "previousOccurrences": 0,
+        "averageResolutionTime": null,
+        "successRate": null
+      },
+      "accessibilityNeeds": ["Audio signals for visually impaired pedestrians"],
+      "preferredContactMethod": "Email",
+      "feedbackFollowUpDate": "2023-10-02T00:00:00Z",
+      "citizenSatisfactionIndex": null,
+      "resolutionQualityScore": null,
+      "environmentalImpact": "Increased vehicle emissions due to traffic congestion",
+      "economicImpact": "Delays affecting business operations in the area",
+      "socialImpact": "Increased stress levels for commuters",
+      "aiRecommendations": [
+        "Implement emergency backup power for traffic signals",
+        "Conduct regular maintenance checks on all traffic signals in the area"
+      ],
+      "trendAnalysis": {
+        "trend": "new_issue",
+        "confidenceScore": 0.9
+      },
+      "predictiveMaintenance": {
+        "nextPredictedOccurrence": null,
+        "preventiveMeasures": ["Monthly signal system diagnostics", "Weather-proofing of signal control boxes"]
+      },
+      "crossDepartmentCollaboration": ["Electricity Department", "Road Transport Department"],
+      "linkedServiceRequests": ["SR2023090060"],
+      "citizenProfile": {
+        "governmentId": "AADHAAR-XXXX-XXXX-2468",
+        "demographicSegment": "Urban professional",
+        "serviceHistory": ["Vehicle Registration", "Driving License Renewal"]
+      }
+    },
+    {
+      "id": "GR2023090007",
+      "citizenName": "राजेश कुमार",
+      "contactNumber": "9876543211",
+      "email": "rajesh.kumar@example.com",
+      "title": "खाद्य मिलावट की शिकायत",
+      "description": "स्थानीय दुकान से खरीदी गई दूध की थैली में मिलावट पाई गई है। कृपया जांच करें और कार्रवाई करें।",
+      "category": "Food Safety",
+      "subcategory": "Food Adulteration",
+      "urgencyLevel": "High",
+      "submissionDate": "2023-09-28T09:30:00Z",
+      "lastUpdatedDate": "2023-09-28T14:00:00Z",
+      "district": "कानपुर",
+      "tehsil": "कानपुर नगर",
+      "ward": "सिविल लाइन्स",
+      "pincode": "208001",
+      "gpsCoordinates": {
+        "latitude": 26.4499,
+        "longitude": 80.3319
+      },
+      "departmentAssigned": "Food Safety and Drug Administration",
+      "status": "InProgress",
+      "escalationLevel": 1,
+      "expectedResolutionDate": "2023-09-29T14:00:00Z",
+      "attachments": [
+        {
+          "fileUrl": "https://storage.igrs.up.gov.in/attachments/GR2023090007_1.jpg",
+          "fileType": "image/jpeg",
+          "uploadDate": "2023-09-28T09:32:00Z"
+        }
+      ],
+      "sentimentScore": -0.8,
+      "priorityScore": 90,
+      "keywordsTags": ["मिलावट", "दूध", "खाद्य सुरक्षा", "स्वास्थ्य"],
+      "categoryPrediction": "Food Safety",
+      "estimatedResolutionTime": 24,
+      "createdAt": "2023-09-28T09:30:00Z",
+      "updatedAt": "2023-09-28T14:00:00Z",
+      "auditLog": [
+        {
+          "timestamp": "2023-09-28T09:30:00Z",
+          "action": "Grievance Submitted",
+          "performedBy": "Citizen",
+          "details": "Grievance submitted through web portal"
+        },
+        {
+          "timestamp": "2023-09-28T14:00:00Z",
+          "action": "Sample Collection Scheduled",
+          "performedBy": "Food Safety Officer",
+          "details": "Team assigned for sample collection"
+        }
+      ],
+      "languagePreference": "Hindi",
+      "isAnonymous": false,
+      "relatedPolicies": ["UP Food Safety Act", "FSSAI Guidelines"],
+      "impactedPopulation": 1000,
+      "recurrenceFrequency": "First occurrence",
+      "budgetEstimate": 5000,
+      "sdgGoals": ["SDG 3: Good Health and Well-being"],
+      "mediaAttention": false,
+      "politicalSensitivity": 3,
+      "communitySupport": 80,
+      "historicalData": {
+        "previousOccurrences": 0,
+        "averageResolutionTime": null,
+        "successRate": null
+      },
+      "accessibilityNeeds": [],
+      "preferredContactMethod": "Phone",
+      "feedbackFollowUpDate": "2023-09-30T00:00:00Z",
+      "citizenSatisfactionIndex": null,
+      "resolutionQualityScore": null,
+      "environmentalImpact": "Minimal",
+      "economicImpact": "Local dairy business reputation at risk",
+      "socialImpact": "Community health concern",
+      "aiRecommendations": [
+        "Immediate sample testing",
+        "Inspect nearby dairy suppliers"
+      ],
+      "trendAnalysis": {
+        "trend": "isolated_incident",
+        "confidenceScore": 0.8
+      },
+      "predictiveMaintenance": {
+        "nextPredictedOccurrence": null,
+        "preventiveMeasures": ["Regular quality checks", "Vendor education"]
+      },
+      "crossDepartmentCollaboration": ["Health Department", "Consumer Affairs"],
+      "linkedServiceRequests": ["SR2023090070"],
+      "citizenProfile": {
+        "governmentId": "AADHAAR-XXXX-XXXX-3456",
+        "demographicSegment": "Urban middle class",
+        "serviceHistory": ["Consumer Complaints", "Health Services"]
+      }
+    },
+    {
+      "id": "GR2023090008",
+      "citizenName": "सुनीता देवी",
+      "contactNumber": "8765432109",
+      "email": "sunita.devi@example.com",
+      "title": "प्राथमिक स्वास्थ्य केंद्र में दवाइयों की कमी",
+      "description": "गाँव के PHC में आवश्यक दवाइयां उपलब्ध नहीं हैं। गंभीर मरीजों को परेशानी का सामना करना पड़ रहा है।",
+      "category": "Healthcare",
+      "subcategory": "Medicine Availability",
+      "urgencyLevel": "Critical",
+      "submissionDate": "2023-09-28T10:15:00Z",
+      "lastUpdatedDate": "2023-09-28T15:00:00Z",
+      "district": "गोरखपुर",
+      "tehsil": "गोरखपुर सदर",
+      "ward": "रापती नगर",
+      "pincode": "273001",
+      "gpsCoordinates": {
+        "latitude": 26.7606,
+        "longitude": 83.3732
+      },
+      "departmentAssigned": "Medical Health and Family Welfare",
+      "status": "InProgress",
+      "escalationLevel": 2,
+      "expectedResolutionDate": "2023-09-29T15:00:00Z",
+      "attachments": [],
+      "sentimentScore": -0.9,
+      "priorityScore": 95,
+      "keywordsTags": ["दवाई", "स्वास्थ्य केंद्र", "आपातकालीन"],
+      "categoryPrediction": "Healthcare",
+      "estimatedResolutionTime": 1,
+      "createdAt": "2023-09-28T10:15:00Z",
+      "updatedAt": "2023-09-28T15:00:00Z",
+      "auditLog": [
+        {
+          "timestamp": "2023-09-28T10:15:00Z",
+          "action": "Grievance Submitted",
+          "performedBy": "Citizen",
+          "details": "Grievance submitted through mobile app"
+        },
+        {
+          "timestamp": "2023-09-28T15:00:00Z",
+          "action": "Status Updated",
+          "performedBy": "Medical Health Officer",
+          "details": "Emergency medicine supply dispatched"
+        }
+      ],
+      "languagePreference": "Hindi",
+      "isAnonymous": false,
+      "relatedPolicies": ["National Health Policy", "UP Health Mission"],
+      "impactedPopulation": 5000,
+      "recurrenceFrequency": "First occurrence",
+      "budgetEstimate": 20000,
+      "sdgGoals": ["SDG 3: Good Health and Well-being"],
+      "mediaAttention": true,
+      "politicalSensitivity": 5,
+      "communitySupport": 90,
+      "historicalData": {
+        "previousOccurrences": 0,
+        "averageResolutionTime": null,
+        "successRate": null
+      },
+      "accessibilityNeeds": ["Wheelchair access", "Sign language interpreters"],
+      "preferredContactMethod": "Phone",
+      "feedbackFollowUpDate": "2023-09-30T00:00:00Z",
+      "citizenSatisfactionIndex": null,
+      "resolutionQualityScore": null,
+      "environmentalImpact": "Minimal",
+      "economicImpact": "Local health services under strain",
+      "socialImpact": "Increased health risks for community",
+      "aiRecommendations": [
+        "Immediate restocking of essential medicines",
+        "Review supply chain for efficiency"
+      ],
+      "trendAnalysis": {
+        "trend": "recurring_issue",
+        "confidenceScore": 0.85
+      },
+      "predictiveMaintenance": {
+        "nextPredictedOccurrence": null,
+        "preventiveMeasures": ["Regular inventory checks", "Supplier audits"]
+      },
+      "crossDepartmentCollaboration": ["Pharmaceutical Department", "Logistics"],
+      "linkedServiceRequests": ["SR2023090080"],
+      "citizenProfile": {
+        "governmentId": "AADHAAR-XXXX-XXXX-5678",
+        "demographicSegment": "Rural population",
+        "serviceHistory": ["Health Services", "Welfare Schemes"]
+      }
+    }
+  ]
+

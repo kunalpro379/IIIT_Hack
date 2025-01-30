@@ -1,0 +1,20 @@
+{
+  "faqs": [
+    {
+      "question": "How do I track my grievance?",
+      "answer": "You can track your grievance using the tracking ID provided after submission. Our real-time tracking system provides updates at every stage."
+    },
+    {
+      "question": "What happens after I submit a grievance?",
+      "answer": "Your grievance is analyzed by our AI system, categorized by priority, and assigned to the relevant department. You'll receive regular updates via SMS/email."
+    },
+    {
+      "question": "How long does resolution take?",
+      "answer": "Resolution time varies by type of grievance. Simple issues are typically resolved within 48 hours, while complex cases may take 7-14 days."
+    },
+    {
+      "question": "Can I submit anonymous complaints?",
+      "answer": "Yes, you can submit anonymous complaints. However, we recommend providing contact details for better follow-up and updates."
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+ID: GR2023090006
+Title: Malfunctioning Traffic Signal
+Description: The traffic signal at the intersection of MG Road and Park Street has been malfunctioning for the past three days. This is causing traffic jams and is dangerous for pedestrians.
+Urgency Level: High
+Predicted Priority: Urgent
+Sentiment Score: -0.7
+Category: Traffic Management
+Subcategory: Traffic Signal Issues
+Submission Date: 2023-09-28T08:45:00Z
+Last Updated Date: 2023-09-29T10:00:00Z
+District: Lucknow
+Tehsil: Lucknow
+Ward: Hazratganj
+Pincode: 226001
+GPS Coordinates: (26.8467, 80.9462)
+Department Assigned: Traffic Police
+Status: InProgress
+Escalation Level: 1
+Expected Resolution Date: 2023-09-30T00:00:00Z
+Attachments: https://storage.igrs.up.gov.in/attachments/GR2023090006_1.jpg
+Language Preference: English
+Is Anonymous: False
+Related Policies: Uttar Pradesh Road Safety Policy, nan
+Impacted Population: 10000
+Recurrence Frequency: First occurrence
+Budget Estimate: 15000
+SDG Goals: SDG 11: Sustainable Cities and Communities, SDG 3: Good Health and Well-being
+Media Attention: False
+Political Sensitivity: 2
+Community Support: 50
+Historical Data - Previous Occurrences: 0
+Historical Data - Average Resolution Time: nan
+Historical Data - Success Rate: nan
+Accessibility Needs: Audio signals for visually impaired pedestrians
+Preferred Contact Method: Email
+Feedback Follow-Up Date: 2023-10-02T00:00:00Z
+Citizen Satisfaction Index: nan
+Resolution Quality Score: nan
+Environmental Impact: Increased vehicle emissions due to traffic congestion
+Economic Impact: Delays affecting business operations in the area
+Social Impact: Increased stress levels for commuters
+AI Recommendations: Implement emergency backup power for traffic signals, Conduct regular maintenance checks on all traffic signals in the area
+Trend Analysis - Trend: new_issue
+Trend Analysis - Confidence Score: 0.9
+Predictive Maintenance - Next Predicted Occurrence: nan
+Predictive Maintenance - Preventive Measures: Monthly signal system diagnostics, Weather-proofing of signal control boxes
+Cross-Department Collaboration: Electricity Department, Road Transport Department
+Linked Service Requests: SR2023090060
+Citizen Profile - Government ID: AADHAAR-XXXX-XXXX-2468
+Citizen Profile - Demographic Segment: Urban professional
+Citizen Profile - Service History: Vehicle Registration, Driving License Renewal
+Attachments: https://storage.igrs.up.gov.in/attachments/GR2023090006_2.mp4
+Audit Log: 2023-09-28T08:45:00Z - Grievance Submitted by Citizen
+Accessibility Needs: nan
+Attachments: nan
+Accessibility Needs: nan
+
+

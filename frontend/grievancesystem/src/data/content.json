@@ -1,0 +1,75 @@
+{
+  "ads": [
+    {
+      "title": "Digital India Initiative",
+      "description": "Empowering citizens through technology",
+      "image": "https://images.pexels.com/photos/10347618/pexels-photo-10347618.jpeg",
+      "link": "#",
+      "icon": "Building"
+    },
+    {
+      "title": "Smart City Project",
+      "description": "Building sustainable urban infrastructure",
+      "image": "https://images.pexels.com/photos/169647/pexels-photo-169647.jpeg",
+      "link": "#",
+      "icon": "TrendingUp"
+    },
+    {
+      "title": "E-Governance Portal",
+      "description": "Access government services online",
+      "image": "https://images.pexels.com/photos/5473955/pexels-photo-5473955.jpeg",
+      "link": "#",
+      "icon": "Users"
+    }
+  ],
+  "governmentAds": [
+    {
+      "title": "Smart Grievance Resolution",
+      "description": "AI-powered system for faster complaint resolution",
+      "image": "https://images.pexels.com/photos/8386365/pexels-photo-8386365.jpeg",
+      "link": "#",
+      "icon": "Building",
+      "stats": "90% resolution rate"
+    },
+    {
+      "title": "IGRS UP Initiative",
+      "description": "Unified platform for citizen grievances",
+      "image": "https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg",
+      "link": "#",
+      "icon": "TrendingUp",
+      "stats": "1M+ citizens served"
+    },
+    {
+      "title": "Digital Feedback System",
+      "description": "Real-time tracking and updates",
+      "image": "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg",
+      "link": "#",
+      "icon": "Users",
+      "stats": "24/7 monitoring"
+    }
+  ],
+  "announcements": [
+    {
+      "title": "New Digital Service Launch",
+      "date": "2024-01-15",
+      "category": "Digital Services"
+    },
+    {
+      "title": "Public Meeting Schedule",
+      "date": "2024-01-20",
+      "category": "Community"
+    }
+  ],
+  "activePolls": [
+    {
+      "title": "City Park Development Plan",
+      "votes": 1234,
+      "endsIn": "2 days"
+    },
+    {
+      "title": "Public Transport Routes",
+      "votes": 890,
+      "endsIn": "5 days"
+    }
+  ]
+}

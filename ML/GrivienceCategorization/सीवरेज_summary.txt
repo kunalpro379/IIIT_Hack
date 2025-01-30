@@ -1,0 +1,58 @@
+ID: GR2023090003
+Title: खुला हुआ मैनहोल
+Description: मेरे घर के पास एक खुला हुआ मैनहोल है जो बच्चों और पैदल चलने वालों के लिए खतरनाक है। कृपया इसे जल्द से जल्द ढंकें।
+Urgency Level: Critical
+Predicted Priority: Urgent
+Sentiment Score: -0.9
+Category: सीवरेज
+Subcategory: मैनहोल सुरक्षा
+Submission Date: 2023-09-18T14:20:00Z
+Last Updated Date: 2023-09-19T10:00:00Z
+District: वाराणसी
+Tehsil: वाराणसी सदर
+Ward: भेलूपुर
+Pincode: 221001
+GPS Coordinates: (25.3176, 82.9739)
+Department Assigned: जल निगम
+Status: InProgress
+Escalation Level: 2
+Expected Resolution Date: 2023-09-20T00:00:00Z
+Attachments: https://storage.igrs.up.gov.in/attachments/GR2023090003_1.jpg
+Language Preference: Hindi
+Is Anonymous: False
+Related Policies: उत्तर प्रदेश जल नीति, nan
+Impacted Population: 500
+Recurrence Frequency: पहली बार रिपोर्ट किया गया
+Budget Estimate: 10000
+SDG Goals: SDG 6: स्वच्छ जल और स्वच्छता, SDG 11: सतत शहर और समुदाय
+Media Attention: False
+Political Sensitivity: 4
+Community Support: 75
+Historical Data - Previous Occurrences: 0
+Historical Data - Average Resolution Time: nan
+Historical Data - Success Rate: nan
+Accessibility Needs: दृष्टिबाधित व्यक्तियों के लिए सुरक्षा उपाय
+Preferred Contact Method: Phone
+Feedback Follow-Up Date: 2023-09-22T00:00:00Z
+Citizen Satisfaction Index: nan
+Resolution Quality Score: nan
+Environmental Impact: सीवेज का खुला बहाव
+Economic Impact: स्थानीय व्यवसायों पर न्यूनतम प्रभाव
+Social Impact: समुदाय में सुरक्षा चिंताएं
+AI Recommendations: तत्काल मैनहोल कवर लगाएं, क्षेत्र में सभी मैनहोल की जांच करें
+Trend Analysis - Trend: stable
+Trend Analysis - Confidence Score: 0.7
+Predictive Maintenance - Next Predicted Occurrence: nan
+Predictive Maintenance - Preventive Measures: नियमित मैनहोल निरीक्षण, सुरक्षा जागरूकता अभियान
+Cross-Department Collaboration: नगर निगम, यातायात विभाग
+Linked Service Requests: SR2023090030
+Citizen Profile - Government ID: AADHAAR-XXXX-XXXX-9012
+Citizen Profile - Demographic Segment: शहरी मध्यम वर्ग
+Citizen Profile - Service History: पानी कनेक्शन, प्रॉपर्टी टैक्स भुगतान
+Attachments: https://storage.igrs.up.gov.in/attachments/GR2023090003_2.mp4
+Audit Log: 2023-09-18T14:20:00Z - Grievance Submitted by Citizen
+Accessibility Needs: nan
+Attachments: nan
+Accessibility Needs: nan
+
+

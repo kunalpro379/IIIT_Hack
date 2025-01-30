@@ -1,0 +1,58 @@
+ID: GR2023090009
+Title: सिंचाई नहर की मरम्मत
+Description: किसानों की फसल को पानी नहीं मिल रहा है। नहर टूटी हुई है और मरम्मत की आवश्यकता है।
+Urgency Level: High
+Predicted Priority: Urgent
+Sentiment Score: -0.7
+Category: Irrigation
+Subcategory: Canal Maintenance
+Submission Date: 2023-09-28T11:00:00Z
+Last Updated Date: 2023-09-28T16:00:00Z
+District: मेरठ
+Tehsil: मेरठ सदर
+Ward: शास्त्री नगर
+Pincode: 250001
+GPS Coordinates: (28.9845, 77.7064)
+Department Assigned: Irrigation and Water Resource Department
+Status: InProgress
+Escalation Level: 1
+Expected Resolution Date: 2023-09-30T16:00:00Z
+Attachments: https://storage.igrs.up.gov.in/attachments/GR2023090009_1.jpg
+Language Preference: Hindi
+Is Anonymous: False
+Related Policies: National Irrigation Policy, UP Water Conservation Act
+Impacted Population: 2000
+Recurrence Frequency: First occurrence
+Budget Estimate: 10000
+SDG Goals: SDG 2: Zero Hunger, SDG 6: Clean Water and Sanitation
+Media Attention: True
+Political Sensitivity: 4
+Community Support: 85
+Historical Data - Previous Occurrences: 0
+Historical Data - Average Resolution Time: nan
+Historical Data - Success Rate: nan
+Accessibility Needs: Accessible pathways for inspection teams
+Preferred Contact Method: Phone
+Feedback Follow-Up Date: 2023-10-01T00:00:00Z
+Citizen Satisfaction Index: nan
+Resolution Quality Score: nan
+Environmental Impact: Water wastage
+Economic Impact: Crop yield reduction
+Social Impact: Farmer distress
+AI Recommendations: Immediate canal repair, Regular maintenance schedule
+Trend Analysis - Trend: isolated_incident
+Trend Analysis - Confidence Score: 0.75
+Predictive Maintenance - Next Predicted Occurrence: nan
+Predictive Maintenance - Preventive Measures: Regular canal inspections, Community awareness programs
+Cross-Department Collaboration: Agriculture Department, Water Resources
+Linked Service Requests: SR2023090090
+Citizen Profile - Government ID: AADHAAR-XXXX-XXXX-7890
+Citizen Profile - Demographic Segment: Rural farmer
+Citizen Profile - Service History: Agricultural Subsidies, Water Supply Services
+Attachments: nan
+Audit Log: 2023-09-28T11:00:00Z - Grievance Submitted by Citizen
+Accessibility Needs: nan
+Attachments: nan
+Accessibility Needs: nan
+
+
