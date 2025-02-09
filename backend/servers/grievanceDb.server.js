@@ -2,6 +2,7 @@ const express = require('express');
 const { Pool } = require('pg');
 const fs = require('fs');
 const csv = require('csv-parser');
+const multer = require('multer');
 require('dotenv').config();
 
 const app = express();
@@ -16,8 +17,13 @@ const pool = new Pool({
     port: 6543,
 });
 
-app.use(express.json());
+app.use(express.json({ limit: '50mb' }));
+app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 
+// Multer setup for file upload
+const upload = multer({ dest: 'uploads/' });
+
+// Test DB Connection
 app.get('/ping', async (req, res) => {
     try {
         const client = await pool.connect();
@@ -29,9 +35,14 @@ app.get('/ping', async (req, res) => {
     }
 });
 
-app.post('/upload-csv', async (req, res) => {
+// Upload CSV File and Insert Data into PostgreSQL
+app.post('/upload-csv', upload.single('file'), async (req, res) => {
+    if (!req.file) {
+        return res.status(400).send('No file uploaded.');
+    }
+
     const results = [];
-    fs.createReadStream('combined_data.csv')
+    fs.createReadStream(req.file.path)
         .pipe(csv())
         .on('data', (data) => results.push(data))
         .on('end', async () => {
@@ -52,6 +63,7 @@ app.post('/upload-csv', async (req, res) => {
         });
 });
 
+// Start Server
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
 });
