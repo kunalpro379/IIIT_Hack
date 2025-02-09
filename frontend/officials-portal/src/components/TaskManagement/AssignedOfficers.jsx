@@ -31,8 +31,8 @@ const AssignedOfficers = () => {
   ];
 
   return (
-    <div className="bg-white dark:bg-dark-card rounded-lg p-6 shadow-lg">
-      <div className="flex items-center gap-2 mb-6">
+    <div className="bg-white dark:bg-black rounded-lg p-6 shadow-lg">
+      <div className="flex items-center gap-2 mb-6 ">
         <Users className="text-primary-500" />
         <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
           Assigned Officers
@@ -45,7 +45,7 @@ const AssignedOfficers = () => {
             key={officer.id}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-gray-50 dark:bg-dark-bg-secondary p-4 rounded-lg"
+            className="bg-gray-50 dark:bg-gray-900 p-4 rounded-lg"
           >
             <div className="flex justify-between items-start">
               <div>

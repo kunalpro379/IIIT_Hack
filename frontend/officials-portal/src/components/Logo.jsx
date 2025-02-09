@@ -1,19 +1,15 @@
-import React from 'react'
+import React from 'react';
 
-function Logo() {
+const Logo = () => {
   return (
     <div className="flex items-center gap-2">
-      <img 
-        src="/up.png" 
-        alt="UP-GRS Logo" 
-        className="h-10 w-10"
-      />
+      <img src="/up-logo.png" alt="UP Logo" className="h-8 w-8" />
       <div>
-        <h1 className="text-2xl font-bold text-primary-600 dark:text-primary-400">UP-GRS</h1>
-        <p className="text-xs text-gray-500 dark:text-gray-400">Grievance Redressal System</p>
+        <h1 className="text-lg font-bold text-white leading-none">P-GRS</h1>
+        <p className="text-xs text-white/70">Grievance Redressal System</p>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Logo
+export default Logo;

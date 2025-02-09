@@ -1,4 +1,4 @@
-import { Outlet, Link, useNavigate, useLocation } from "react-router-dom"
+import { Outlet, useNavigate, useLocation, Link } from "react-router-dom"
 import { 
   LayoutDashboard, 
   FileText, 
@@ -7,38 +7,57 @@ import {
   Megaphone,
   LogOut,
   ChevronLeft,
-  Menu
+  Menu,
+  MessageCircle,
+  UserCircle
 } from "lucide-react"
 import React, { useState } from "react"
 import Logo from "./components/Logo"
 import ThemeToggle from './components/ThemeToggle'
+import { useTheme } from './components/ThemeProvider';
+import ProfileCard from './components/ProfileCard';
 
-function Layout({ userRole }) {
-  const navigate = useNavigate()
-  const location = useLocation()
-  const [isSidebarCollapsed, setSidebarCollapsed] = useState(false)
+function Layout({ userRole, onLogout }) {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const [isSidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const { colors, theme, setTheme } = useTheme();
+  const [showProfile, setShowProfile] = useState(false);
 
-  const isActive = (path) => location.pathname === path
+  const mockUserData = {
+    username: "admin",
+    role: userRole || "administrator",
+    jurisdiction: "Uttar Pradesh",
+    department: "Administration"
+  };
 
+  // Update the navigation items paths
   const navItems = [
-    { path: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
-    { path: "/grievances", label: "Grievances", icon: FileText },
-    { path: "/heatmap", label: "Area Heatmap", icon: Map },
-    { path: "/chat", label: "Chat", icon: MessageSquare },
-    { path: "/announcements", label: "Announcements", icon: Megaphone },
-    {path : "/tasks", label : "Task Management", icon : FileText}
-  ]
+    { path: "dashboard", label: "Dashboard", icon: LayoutDashboard },
+    { path: "grievances", label: "Grievances", icon: FileText },
+    { path: "heatmap", label: "Area Heatmap", icon: Map },
+    { path: "chat", label: "Chat", icon: MessageSquare },
+    { path: "announcements", label: "Announcements", icon: Megaphone },
+    { path: "tasks", label: "Task Management", icon: FileText },
+    { path: "feedback", label: "Feedback", icon: MessageCircle }
+  ];
 
-  const handleLogout = () => {
-    // Add logout logic here
-    navigate('/')
-  }
+  // Update isActive to handle path matching correctly
+  const isActive = (path) => {
+    return location.pathname.endsWith(path);
+  };
+
+  // Update navigation handler
+  const handleNavigation = (path) => {
+    navigate(`/${path}`);
+  };
 
   return (
-    <div className="flex h-screen bg-gray-50 dark:bg-dark-bg transition-colors duration-300">
-      {/* Sidebar */}
-      <div className={`${isSidebarCollapsed ? 'w-20' : 'w-64'} bg-white dark:bg-black border-r border-gray-200 dark:border-gray-700 transition-all duration-300 ease-in-out flex flex-col`}>
-        <div className="p-4 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
+    <div className="flex h-screen bg-[#1a1a1a] transition-colors duration-300 relative">
+      {/* Sidebar with higher z-index */}
+      <div className={`${isSidebarCollapsed ? 'w-20' : 'w-64'} bg-[#2d2d2d] border-r border-[#3d3d3d] transition-all duration-300 ease-in-out flex flex-col z-30 relative`}>
+        {/* Logo section */}
+        <div className="p-4 border-b border-[#3d3d3d] flex justify-between items-center">
           {isSidebarCollapsed ? (
             <img src="/up-logo.png" alt="UP-GRS" className="h-10 w-10 mx-auto" />
           ) : (
@@ -49,33 +68,42 @@ function Layout({ userRole }) {
           )}
         </div>
 
+        {/* Navigation */}
         <nav className="flex-1 pt-4">
           {navItems.map((item) => (
-            <Link
+            <button
               key={item.path}
-              to={item.path}
-              className={`flex items-center gap-3 py-3 px-4 text-gray-600 dark:text-gray-300 hover:bg-primary-50 dark:hover:bg-dark-bg hover:text-primary-600 dark:hover:text-primary-400 transition-colors ${
-                isActive(item.path) ? "bg-primary-50 dark:bg-dark-bg text-primary-600 dark:text-primary-400 border-r-4 border-primary-600 dark:border-primary-400" : ""
+              onClick={() => handleNavigation(item.path)}
+              className={`w-full flex items-center gap-3 py-3 px-4 text-white/70 hover:bg-[#353535] hover:text-white transition-colors ${
+                isActive(item.path) 
+                  ? "bg-[#353535] text-white border-r-4 border-purple-500" 
+                  : ""
               }`}
             >
               <item.icon size={20} />
-              {!isSidebarCollapsed && <span>{item.label}</span>}
-            </Link>
+              {!isSidebarCollapsed && (
+                <span className="whitespace-nowrap">{item.label}</span>
+              )}
+            </button>
           ))}
         </nav>
 
-        <div className="border-t border-gray-200 dark:border-gray-700 p-4">
+        {/* Control buttons */}
+        <div className="border-t border-[#3d3d3d] p-4">
           <button
             onClick={() => setSidebarCollapsed(!isSidebarCollapsed)}
-            className="w-full flex items-center gap-2 text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 mb-4"
+            className="w-full flex items-center gap-2 text-white/70 hover:text-white mb-4"
           >
             {isSidebarCollapsed ? <Menu size={20} /> : <ChevronLeft size={20} />}
             {!isSidebarCollapsed && <span>Collapse</span>}
           </button>
           
           <button
-            onClick={handleLogout}
-            className="w-full flex items-center gap-2 text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 p-2 rounded-md"
+            onClick={() => {
+              onLogout();
+              navigate('/');
+            }}
+            className="w-full flex items-center gap-2 text-red-400 hover:bg-red-500/10 p-2 rounded-md"
           >
             <LogOut size={20} />
             {!isSidebarCollapsed && <span>Logout</span>}
@@ -84,14 +112,41 @@ function Layout({ userRole }) {
       </div>
 
       {/* Main content */}
-      <div className="flex-1 overflow-auto">
+      <div className="flex-1 overflow-auto bg-[#1a1a1a] relative">
         <div className="p-8">
+          {/* Profile button with higher z-index */}
+          <div className="absolute top-4 right-4 z-40">
+            <button
+              onClick={() => setShowProfile(!showProfile)}
+              className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors"
+            >
+              <UserCircle className="w-6 h-6 text-white/70" />
+            </button>
+          </div>
+
+          {/* Profile Card Modal */}
+          {showProfile && (
+            <>
+              {/* Overlay */}
+              <div 
+                className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40"
+                onClick={() => setShowProfile(false)}
+              />
+              {/* Centered Profile Card */}
+              <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50">
+                <ProfileCard
+                  user={mockUserData}
+                  onClose={() => setShowProfile(false)}
+                />
+              </div>
+            </>
+          )}
           <Outlet />
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Layout
+export default Layout;
 

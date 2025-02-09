@@ -1,13 +1,10 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { 
-  Plus, Calendar, BarChart2, Users, Filter,
-  Clock, CheckCircle2, AlertCircle
-} from 'lucide-react';
+import { Calendar, Filter, Plus } from 'lucide-react';
 
-const TaskManagement = () => {
+const Tasks = () => {
   const [view, setView] = useState('board');
-
+  
   const tasks = {
     todo: [
       {
@@ -22,7 +19,6 @@ const TaskManagement = () => {
         department: "Water",
         progress: 0
       },
-      // ... more tasks
     ],
     inProgress: [
       {
@@ -55,78 +51,44 @@ const TaskManagement = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-dark-bg p-6 transition-colors duration-300">
-      {/* Header Section */}
-      <div className="mb-8">
-        <div className="flex justify-between items-center mb-4">
-          <div>
-            <h1 className="text-2xl font-bold text-gray-800 dark:text-gray-100">
-              Task Management
-            </h1>
-            <p className="text-gray-600 dark:text-gray-400 mt-1">
-              Track and manage department tasks efficiently
-            </p>
+    <div className="space-y-6">
+      {/* Filters and View Toggle */}
+      <div className="flex flex-wrap items-center justify-between gap-4">
+        <div className="flex items-center gap-4">
+          <div className="relative">
+            <select className="pl-10 pr-4 py-2 bg-white dark:bg-dark-card border border-gray-200 
+              dark:border-gray-700 rounded-lg text-gray-700 dark:text-gray-200 focus:ring-2 
+              focus:ring-primary-500 appearance-none cursor-pointer">
+              <option>All Departments</option>
+              <option>Water</option>
+              <option>Electricity</option>
+              <option>Roads</option>
+            </select>
+            <Filter className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
           </div>
-          <motion.button
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            className="flex items-center gap-2 px-4 py-2 bg-primary-500 hover:bg-primary-600 
-              text-white rounded-lg transition-colors duration-200"
-          >
-            <Plus size={20} />
-            Create New Task
-          </motion.button>
         </div>
-
-        {/* Quick Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
-          <div className="bg-white dark:bg-dark-card p-4 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700">
-            <div className="flex items-center gap-3">
-              <div className="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
-                <Clock className="w-5 h-5 text-blue-600 dark:text-blue-400" />
-              </div>
-              <div>
-                <p className="text-sm text-gray-600 dark:text-gray-400">Pending</p>
-                <p className="text-xl font-semibold text-gray-800 dark:text-gray-100">12</p>
-              </div>
-            </div>
-          </div>
-          {/* Similar stats cards for In Progress, Completed, and Total */}
-        </div>
-
-        {/* Filters and View Toggle */}
-        <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
-          <div className="flex items-center gap-4">
-            <div className="relative">
-              <select className="pl-10 pr-4 py-2 bg-white dark:bg-dark-card border border-gray-200 
-                dark:border-gray-700 rounded-lg text-gray-700 dark:text-gray-200 focus:ring-2 
-                focus:ring-primary-500 appearance-none cursor-pointer">
-                <option>All Departments</option>
-                <option>Water</option>
-                <option>Electricity</option>
-                <option>Roads</option>
-              </select>
-              <Filter className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-            </div>
-            {/* More filters */}
-          </div>
-          
-          <div className="flex items-center gap-2 bg-gray-100 dark:bg-gray-800 p-1 rounded-lg">
-            <button className={`px-3 py-1.5 rounded-md transition-colors ${
+        
+        <div className="flex items-center gap-2 bg-gray-100 dark:bg-gray-800 p-1 rounded-lg">
+          <button 
+            onClick={() => setView('board')}
+            className={`px-3 py-1.5 rounded-md transition-colors ${
               view === 'board' 
                 ? 'bg-white dark:bg-dark-card text-gray-800 dark:text-gray-100' 
                 : 'text-gray-600 dark:text-gray-400'
-            }`}>
-              Board View
-            </button>
-            <button className={`px-3 py-1.5 rounded-md transition-colors ${
+            }`}
+          >
+            Board View
+          </button>
+          <button 
+            onClick={() => setView('list')}
+            className={`px-3 py-1.5 rounded-md transition-colors ${
               view === 'list' 
                 ? 'bg-white dark:bg-dark-card text-gray-800 dark:text-gray-100' 
                 : 'text-gray-600 dark:text-gray-400'
-            }`}>
-              List View
-            </button>
-          </div>
+            }`}
+          >
+            List View
+          </button>
         </div>
       </div>
 
@@ -171,7 +133,6 @@ const TaskManagement = () => {
                     <span>{task.dueDate}</span>
                   </div>
                   
-                  {/* Progress Bar */}
                   <div className="mb-3">
                     <div className="flex justify-between text-xs mb-1">
                       <span className="text-gray-600 dark:text-gray-400">Progress</span>
@@ -211,4 +172,4 @@ const TaskManagement = () => {
   );
 };
 
-export default TaskManagement;
+export default Tasks;

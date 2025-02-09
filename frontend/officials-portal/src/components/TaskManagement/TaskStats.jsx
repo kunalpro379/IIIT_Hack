@@ -39,26 +39,26 @@ const TaskStats = () => {
   ];
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+    <div className="w-full grid grid-cols-1 xs:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4">
       {stats.map((stat) => (
         <motion.div
           key={stat.title}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className={`${stat.bg} p-6 rounded-lg`}
+          className={`${stat.bg} p-4 sm:p-6 rounded-lg transition-all duration-300 w-50`}
         >
           <div className="flex items-center justify-between">
-            <stat.icon className={`h-6 w-6 ${stat.color}`} />
-            <span className={`text-sm font-medium ${
+            <stat.icon className={`h-5 w-5 sm:h-6 sm:w-6 ${stat.color}`} />
+            <span className={`text-xs sm:text-sm font-medium ${
               stat.change.startsWith('+') ? 'text-green-600' : 'text-red-600'
             }`}>
               {stat.change}
             </span>
           </div>
-          <h3 className="mt-4 text-2xl font-bold text-gray-900 dark:text-white">
+          <h3 className="mt-3 sm:mt-4 text-lg sm:text-xl font-bold text-gray-900 dark:text-white">
             {stat.value}
           </h3>
-          <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
+          <p className="mt-1 text-xs sm:text-sm text-gray-500 dark:text-gray-400">
             {stat.title}
           </p>
         </motion.div>
