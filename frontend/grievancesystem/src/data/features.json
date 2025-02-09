@@ -1,0 +1,44 @@
+{
+  "citizenFeatures": [
+    {
+      "icon": "📱",
+      "title": "Easy Submission",
+      "description": "Submit grievances anytime, anywhere with photos and location"
+    },
+    {
+      "icon": "🔍",
+      "title": "Real-time Tracking",
+      "description": "Track your grievance status with live updates and timeline"
+    },
+    {
+      "icon": "🤖",
+      "title": "Smart Chatbot",
+      "description": "Get instant answers about your grievance status 24/7"
+    },
+    {
+      "icon": "📊",
+      "title": "Community Dashboard",
+      "description": "View resolved issues and community impact in your area"
+    },
+    {
+      "icon": "📢",
+      "title": "Voice Your Opinion",
+      "description": "Participate in polls and surveys for better governance"
+    },
+    {
+      "icon": "⭐",
+      "title": "Feedback System",
+      "description": "Rate and review the resolution process"
+    },
+    {
+      "icon": "🔔",
+      "title": "Smart Notifications",
+      "description": "Get timely updates at every step of resolution"
+    },
+    {
+      "icon": "🤝",
+      "title": "Community Support",
+      "description": "Connect with others facing similar issues"
+    }
+  ]
+}

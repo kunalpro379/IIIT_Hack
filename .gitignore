@@ -1,0 +1,60 @@
+# Python environments
+/venv/
+/env/
+/.env/
+/.venv/
+/ML/myenv/
+**/*.pyc
+**/__pycache__/
+**/*.py[cod]
+**/*$py.class
+
+# Distribution / packaging
+/dist/
+/build/
+/*.egg-info/
+
+/# Project specific ML directories
+/ML/Grivances/results/
+/ML/Grivances/cache/
+/ML/Grivances/checkpoints/
+/ML/Grivances/grievance_model/
+/ML/Grivances/GrivienceProofs/
+/ML/Grivances/impact_models/
+/ML/Grivances/model_output/
+/ML/Grivances/saved_model/
+/ML/Grivances/unified_model/
+/ML/GrievanceProofs/Images/
+/ML/GrievanceProofs/results/
+/ML/GrievanceProofs/saved_models/
+
+# IDEs and editors
+/.idea/
+/.vscode/
+**/*.swp
+**/*.swo
+*~
+
+# Jupyter Notebook
+/.ipynb_checkpoints
+
+# Environment variables
+/.env
+/.env.local
+/.env.*.local
+
+# Logs and databases
+**/*.log
+**/*.sqlite3
+**/*.db
+
+# OS generated files
+/.DS_Store
+/.DS_Store?
+/._*
+/.Spotlight-V100
+/.Trashes
+/ehthumbs.db
+/Thumbs.db
+
+
