@@ -1,0 +1,10 @@
+message,timestamp,attachments
+"Please review the attached report.",2025-02-02T11:30:00Z,"[{""fileName"": ""report.pdf"", ""url"": ""http://example.com/report.pdf""}]"
+"Urgent: Infrastructure issue reported.",2025-02-03T09:15:00Z,"[]"
+"Invitation to the upcoming workshop.",2025-02-04T14:45:00Z,"[{""fileName"": ""workshop_details.pdf"", ""url"": ""http://example.com/workshop_details.pdf""}]"
+"Monthly performance metrics attached.",2025-02-05T08:20:00Z,"[{""fileName"": ""performance_metrics.xlsx"", ""url"": ""http://example.com/performance_metrics.xlsx""}]"
+"Request for budget approval.",2025-02-06T16:00:00Z,"[]"
+"Safety protocols update.",2025-02-07T13:30:00Z,"[{""fileName"": ""safety_protocols.pdf"", ""url"": ""http://example.com/safety_protocols.pdf""}]"
+"Community event planning.",2025-02-08T11:00:00Z,"[]"
+"New policy implementation guidelines.",2025-02-09T15:45:00Z,"[{""fileName"": ""policy_guidelines.pdf"", ""url"": ""http://example.com/policy_guidelines.pdf""}]"
+"Feedback on recent activities.",2025-02-10T10:30:00Z,"[]"

@@ -1,0 +1,259 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Authority 
+model Authority {
+  id             String    @id @default(cuid())
+  name           String
+  email          String    @unique
+  role           RoleType
+  assignedRegion String
+  createdAt      DateTime  @default(now())
+  departments    Department[]
+  panchayats     Panchayat[]
+  blockOfficers  BlockOfficer[]
+  nagarSevaks    NagarSevak[]
+}
+
+model Department {
+  id                 String   @id @default(cuid())
+  departmentId       String   @unique // This will be like DEPT_001, DEPT_002 etc
+  departmentName     String   // This will store the actual department name from CSV
+  description        String?
+  departmentOfficers Json
+  issues             Issue[]
+  timestamp          DateTime @default(now())
+  announcements      Announcement[] 
+  feedbacks          Feedback[]        @relation("DepartmentFeedbacks")
+  communications     Communication[]
+  workers            Json
+  resourceId         String?
+  authorityId        String
+  authority          Authority @relation(fields: [authorityId], references: [id])
+  grievances         Grievance[] 
+}
+
+model DistrictMagistrate {
+  id                 String   @id @default(cuid())
+  name               String
+  description        String?
+  timeStamp          DateTime @default(now())
+  departmentOfficers Json
+  workers            Json
+  announcements      Announcement[]  @relation("DistrictMagistrateAnnouncements")
+  communications     Communication[] @relation("DistrictMagistrateCommunications")
+}
+
+model Panchayat {
+  id                 String   @id @default(cuid())
+  name               String
+  description        String?
+  timeStamp          DateTime @default(now())
+  departmentOfficers Json
+  workers            Json
+  announcements      Announcement[]  @relation("PanchayatAnnouncements")
+  communications     Communication[] @relation("PanchayatCommunications")
+  authority          Authority       @relation(fields: [authorityId], references: [id])
+  authorityId        String
+  blockOfficers      BlockOfficer[]
+}
+
+model BlockOfficer {
+  id           String    @id @default(cuid())
+  name         String
+  panchayatId  String
+  panchayat    Panchayat @relation(fields: [panchayatId], references: [id])
+  authority    Authority @relation(fields: [authorityId], references: [id])
+  authorityId  String
+}
+
+model NagarSevak {
+  id           String    @id @default(cuid())
+  name         String
+  authorityId  String
+  authority    Authority @relation(fields: [authorityId], references: [id])
+}
+
+model Communication {
+  id                  String             @id @default(cuid())
+  senderId            String
+  receiverId          String
+  message             String
+  timestamp           DateTime           @default(now())
+  attachments         Json?
+  department          Department         @relation(fields: [senderId], references: [id], map: "Communication_senderId_fkey")
+  districtMagistrate  DistrictMagistrate? @relation("DistrictMagistrateCommunications", fields: [receiverId], references: [id], map: "Communication_dmReceiverId_fkey")
+  panchayat           Panchayat?          @relation("PanchayatCommunications", fields: [receiverId], references: [id], map: "Communication_panchayatReceiverId_fkey")
+}
+
+model Announcement {
+  id                  String             @id @default(cuid())
+  audienceRoleIds     String[]
+  description         String
+  attachments         Json?
+  title              String
+  channels           String[]
+  comments           Json?
+  citizenReactions   Json?
+  department         Department          @relation(fields: [id], references: [id], map: "Announcement_departmentId_fkey")
+  districtMagistrate DistrictMagistrate? @relation("DistrictMagistrateAnnouncements", fields: [id], references: [id], map: "Announcement_dmId_fkey")
+  panchayat          Panchayat?          @relation("PanchayatAnnouncements", fields: [id], references: [id], map: "Announcement_panchayatId_fkey")
+}
+
+// Citizen 
+model User {
+  id         String      @id @default(cuid())
+  email      String      @unique
+  name       String
+  password   String
+  grievances Grievance[]
+  feedbacks  Feedback[]
+  createdAt  DateTime    @default(now())
+  updatedAt  DateTime    @updatedAt
+}
+
+model Grievance {
+  id                   String           @id @default(cuid())
+  userId               String
+  user                 User             @relation(fields: [userId], references: [id])
+  emailId              String
+  locationId           String
+  location             Location         @relation(fields: [locationId], references: [id])
+  timestamp            DateTime         @default(now())
+  isAnonymous          Boolean          @default(false)
+  complaintType        String
+  title                String
+  categorySubcategory  String
+  economicImpact       String?
+  envImpact            String?
+  emotion              String?
+  socialImpact         String?
+  status               GrievanceStatus  @default(PENDING)
+  urgencyLevel         UrgencyLevel
+  priorityLevel        PriorityLevel
+  departmentAssigned   String          // This will store departmentId from Department model
+  department           Department       @relation(fields: [departmentAssigned], references: [departmentId])
+  feedbacks            Feedback[]
+}
+
+model Location {
+  id                      String      @id @default(cuid())
+  gpsCoordinatesLongitude Float?
+  gpsCoordinatesLatitude  Float?
+  location                String
+  tehsil                  String?
+  pincode                 String
+  district                String
+  ward                    String?
+  grievances              Grievance[]
+}
+
+model Feedback {
+  id          String    @id @default(cuid())
+  citizenId   String
+  citizen     User      @relation(fields: [citizenId], references: [id])
+  grievanceId String
+  grievance   Grievance @relation(fields: [grievanceId], references: [id])
+  departmentId String?
+  department  Department? @relation("DepartmentFeedbacks", fields: [departmentId], references: [id])
+  ratings     Int
+  comment     String?
+  createdAt   DateTime  @default(now())
+}
+
+// Issues Models
+model Issue {
+  id            String           @id @default(cuid())
+  grievanceIds  String[]
+  summary       String
+  category      String
+  subcategory   String
+  urgencyLevel  UrgencyLevel
+  progress      ProgressStatus
+  timeline      IssueTimeLine?
+  attachments   IssueAttachment[]
+  notifications Notification[]
+  departmentId  String
+  department    Department       @relation(fields: [departmentId], references: [id])
+}
+
+model IssueTimeLine {
+  id                 String  @id @default(cuid())
+  issueId            String  @unique
+  issue              Issue   @relation(fields: [issueId], references: [id])
+  reportedDate       DateTime @default(now())
+  actionStartedDate  DateTime?
+  resolutionDate     DateTime?
+  totalDaysToResolve Int?
+}
+
+model IssueAttachment {
+  id             String   @id @default(cuid())
+  mediaId        String   @unique
+  issueId        String
+  issue          Issue    @relation(fields: [issueId], references: [id])
+  uploadedBy     String
+  mediaUrl       String
+  timestampTaken DateTime
+  isVerified     Boolean  @default(false)
+  uploadedAt     DateTime @default(now())
+}
+
+model Notification {
+  id             String         @id @default(cuid())
+  notificationId String         @unique
+  citizenId      String
+  issueId        String
+  issue          Issue          @relation(fields: [issueId], references: [id])
+  isSerious      Boolean        @default(false)
+  isRead         Boolean        @default(false)
+  createdAt      DateTime       @default(now())
+  priorityLevel  PriorityLevel
+  title          String
+}
+
+// Enums
+enum RoleType {
+  ADMIN
+  DEPARTMENT_HEAD
+  FIELD_OFFICER
+  WORKER
+  DISTRICT_MAGISTRATE
+  PANCHAYAT
+  BLOCK_OFFICER
+  NAGAR_SEVAK
+}
+
+enum GrievanceStatus {
+  PENDING
+  IN_PROGRESS
+  RESOLVED
+  REJECTED
+}
+
+enum ProgressStatus {
+  PENDING
+  IN_PROGRESS
+  RESOLVED
+  REJECTED
+}
+
+enum UrgencyLevel {
+  LOW
+  MEDIUM
+  HIGH
+  CRITICAL
+}
+
+enum PriorityLevel {
+  LOW
+  MEDIUM
+  HIGH
+  URGENT
+}
