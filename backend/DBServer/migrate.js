@@ -82,31 +82,61 @@ async function createLocation(row) {
     }
 }
 
+async function createDepartments() {
+  const departments = [
+    { id: 'DEPT_001', name: 'Municipal Corporation' },
+    { id: 'DEPT_002', name: 'Public Works' },
+    { id: 'DEPT_003', name: 'Health' },
+    { id: 'DEPT_004', name: 'Education' },
+    { id: 'DEPT_005', name: 'Water Supply' },
+    // Add more departments as needed
+  ];
+
+  for (const dept of departments) {
+    await prisma.department.upsert({
+      where: { departmentId: dept.id },
+      update: {},
+      create: {
+        departmentId: dept.id,
+        departmentName: dept.name,
+        description: `Department of ${dept.name}`,
+        departmentOfficers: [],
+        workers: [],
+        authorityId: '1' // Make sure to use a valid authority ID
+      }
+    });
+  }
+}
+
 async function createGrievance(row, userId, locationId) {
-    try {
-        return await prisma.grievance.create({
-            data: {
-                userId: userId,
-                emailId: row.email,
-                locationId: locationId,
-                isAnonymous: row.isAnonymous === 'True',
-                complaintType: row.complaintType || 'General',
-                title: row.title,
-                categorySubcategory: `${row.category || 'Unknown'}/${row.subcategory || 'General'}`,
-                economicImpact: row.economicImpact,
-                envImpact: row.environmentalImpact,
-                emotion: row.emotion,
-                socialImpact: row.socialImpact,
-                status: mapStatus(row.status),
-                urgencyLevel: mapUrgencyLevel(row.urgencyLevel),
-                priorityLevel: mapPriorityLevel(row.urgencyLevel),
-                departmentAssigned: row.departmentAssigned
-            }
-        });
-    } catch (error) {
-        console.error('Error creating grievance:', error);
-        return null;
-    }
+  try {
+    // Default to DEPT_001 if no department is assigned
+    const departmentId = row.departmentAssigned || 'DEPT_001';
+
+    return await prisma.grievance.create({
+      data: {
+        userId: userId,
+        emailId: row.email,
+        locationId: locationId,
+        isAnonymous: row.isAnonymous === 'True',
+        complaintType: row.complaintType || 'General',
+        title: row.title,
+        categorySubcategory: `${row.category || 'General'}/${row.subcategory || 'Other'}`,
+        economicImpact: row.economicImpact,
+        envImpact: row.environmentalImpact,
+        emotion: row.emotion,
+        socialImpact: row.socialImpact,
+        status: 'PENDING',
+        urgencyLevel: 'MEDIUM',
+        priorityLevel: 'MEDIUM',
+        departmentAssigned: departmentId,
+        timestamp: new Date()
+      }
+    });
+  } catch (error) {
+    console.error('Error creating grievance:', error);
+    throw error;
+  }
 }
 
 function mapStatus(status) {
@@ -185,7 +215,10 @@ async function migrateData() {
 
 async function main() {
     try {
-        // First setup the database
+        // First create departments
+        await createDepartments();
+        
+        // Then setup the database
         await setupDatabase();
         
         // Then run the data migration

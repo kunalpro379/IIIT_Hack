@@ -22,17 +22,16 @@ model Authority {
 }
 
 model Department {
-  id                 String   @id @default(cuid())
-  departmentId       String   @unique // This will be like DEPT_001, DEPT_002 etc
-  departmentName     String   // This will store the actual department name from CSV
+  id                 String   @id @default(cuid())  // This will be the only ID field
+  departmentName     String   
   description        String?
-  departmentOfficers Json
+  departmentOfficers DepartmentOfficer[]
   issues             Issue[]
   timestamp          DateTime @default(now())
   announcements      Announcement[] 
   feedbacks          Feedback[]        @relation("DepartmentFeedbacks")
   communications     Communication[]
-  workers            Json
+  workers            Worker[]
   resourceId         String?
   authorityId        String
   authority          Authority @relation(fields: [authorityId], references: [id])
@@ -108,14 +107,37 @@ model Announcement {
 
 // Citizen 
 model User {
-  id         String      @id @default(cuid())
-  email      String      @unique
-  name       String
-  password   String
-  grievances Grievance[]
-  feedbacks  Feedback[]
-  createdAt  DateTime    @default(now())
-  updatedAt  DateTime    @updatedAt
+  id                 String             @id @default(cuid())
+  email              String             @unique
+  name               String
+  password           String
+  role               RoleType           @default(CITIZEN)
+  grievances         Grievance[]
+  feedbacks          Feedback[]
+  createdAt          DateTime           @default(now())
+  updatedAt          DateTime           @updatedAt
+//  worker             Worker?            // One-to-one relation with Worker
+//  departmentOfficer  DepartmentOfficer? // One-to-one relation with DepartmentOfficer
+}
+
+model Worker {
+  id              String     @id @default(cuid())
+  email           String     @unique
+  departmentId    String
+  department      Department @relation(fields: [departmentId], references: [id])
+  position        String
+  dateJoined      DateTime
+  contactNumber   String
+}
+
+model DepartmentOfficer {
+  id              String     @id @default(cuid())
+  email           String     @unique
+  departmentId    String
+  department      Department @relation(fields: [departmentId], references: [id])
+  rank            String
+  dateAssigned    DateTime
+  contactNumber   String
 }
 
 model Grievance {
@@ -137,8 +159,8 @@ model Grievance {
   status               GrievanceStatus  @default(PENDING)
   urgencyLevel         UrgencyLevel
   priorityLevel        PriorityLevel
-  departmentAssigned   String          // This will store departmentId from Department model
-  department           Department       @relation(fields: [departmentAssigned], references: [departmentId])
+  departmentId         String           // Rename departmentAssigned to departmentId
+  department           Department       @relation(fields: [departmentId], references: [id], onDelete: Cascade)
   feedbacks            Feedback[]
 }
 
@@ -228,6 +250,8 @@ enum RoleType {
   PANCHAYAT
   BLOCK_OFFICER
   NAGAR_SEVAK
+  CITIZEN
+  DEPARTMENT_OFFICER
 }
 
 enum GrievanceStatus {
