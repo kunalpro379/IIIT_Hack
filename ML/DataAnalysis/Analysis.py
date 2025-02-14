@@ -1,172 +1,143 @@
-def check_dependencies():
-    required_packages = ['plotly', 'pandas', 'numpy']
-    missing_packages = []
-    
-    for package in required_packages:
-        try:
-            __import__(package)
-        except ImportError:
-            missing_packages.append(package)
-    
-    if missing_packages:
-        print("Missing required packages. Please install:")
-        for package in missing_packages:
-            print(f"pip install {package}")
-        return False
-    return True
 
-if not check_dependencies():
-    exit(1)
-
-# Import required packages
 import pandas as pd
-import numpy as np
-try:
-    import plotly.express as px
-    import plotly.graph_objects as go
-    from plotly.subplots import make_subplots
-except ImportError:
-    print("Error: plotly package not found. Installing...")
-    import subprocess
-    import sys
-    subprocess.check_call([sys.executable, "-m", "pip", "install", "plotly"])
-    import plotly.express as px
-    import plotly as go
-    from plotly.subplots import make_subplots
-
+import matplotlib.pyplot as plt
+import seaborn as sns
 from datetime import datetime
+import numpy as np
 
-def analyze_grievance_data(data_path):
-    # Load and preprocess data
-    df = pd.read_csv(data_path)
-    
-    # Convert date columns to datetime
-    date_cols = ['CreatedAt', 'lastUpdatedDate', 'date', 'submissionDate', 'updatedAt']
-    for col in date_cols:
-        if col in df.columns:
-            df[col] = pd.to_datetime(df[col])
-    
-    # Create figures for analysis
-    figures = []
-    
-    try:
-        # 1. District-wise Analysis
-        district_counts = df['district'].value_counts().head(10)
-        fig1 = px.bar(x=district_counts.index, y=district_counts.values,
-                     title='Top 10 Districts by Number of Complaints',
-                     labels={'x': 'District', 'y': 'Number of Complaints'})
-        figures.append(fig1)
-        
-        # 2. Category Analysis
-        category_counts = df['category'].value_counts()
-        fig2 = px.pie(values=category_counts.values, names=category_counts.index,
-                      title='Distribution of Complaints by Category')
-        figures.append(fig2)
-        
-        # 3. Status Analysis
-        status_counts = df['status'].value_counts()
-        fig3 = px.pie(values=status_counts.values, names=status_counts.index,
-                      title='Distribution of Complaint Status')
-        figures.append(fig3)
-        
-        # 4. Resolution Time Analysis
-        fig4 = px.box(df, y='ResolutionTime',
-                      title='Resolution Time Distribution')
-        figures.append(fig4)
-        
-        # 5. Urgency Level Analysis
-        urgency_counts = df['urgencyLevel'].value_counts()
-        fig5 = px.pie(values=urgency_counts.values, names=urgency_counts.index,
-                      title='Distribution of Urgency Levels')
-        figures.append(fig5)
-        
-        # 6. Time Series Analysis
-        daily_counts = df.groupby(df['CreatedAt'].dt.date).size().reset_index()
-        daily_counts.columns = ['Date', 'Count']
-        fig6 = px.line(daily_counts, x='Date', y='Count',
-                       title='Daily Complaint Trends')
-        figures.append(fig6)
-        
-    except Exception as e:
-        print(f"Error creating plots: {str(e)}")
-        return None
+# Read the CSV file
+df = pd.read_csv('../Grivances/gen_datasets/combined_data.csv')
 
-    # Create HTML report
-    html_content = """<!DOCTYPE html>
-<html>
-<head>
-    <title>Grievance Analysis Report</title>
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-</head>
-<body>
-    <h1 style="text-align: center;">Grievance Analysis Report</h1>
-    <div style="padding: 20px; background-color: #f5f5f5; margin: 20px;">
-        <h2>Summary Statistics</h2>
-        <p>Total Complaints: {total}</p>
-        <p>Average Resolution Time: {avg_time:.2f} days</p>
-        <p>Most Common Category: {top_category}</p>
-        <p>Most Affected District: {top_district}</p>
-        <p>Open Cases: {open_cases}</p>
-        <p>High Priority Cases: {high_priority}</p>
-    </div>""".format(
-        total=len(df),
-        avg_time=df['ResolutionTime'].mean(),
-        top_category=category_counts.index[0],
-        top_district=district_counts.index[0],
-        open_cases=len(df[df['status'] == 'Open']),
-        high_priority=len(df[df['urgencyLevel'] == 'High'])
-    )
-    
-    # Add plots to HTML
-    for fig in figures:
-        html_content += f'<div style="margin: 20px 0;">{fig.to_html(full_html=False, include_plotlyjs=False)}</div>'
-    
-    html_content += "</body></html>"
-    
-    # Save report with proper error handling
-    output_path = 'E:\\ML\\Data\\analysis_report.html'
-    try:
-        with open(output_path, 'w', encoding='utf-8') as f:
-            f.write(html_content)
-    except IOError as e:
-        print(f"Error saving report: {str(e)}")
-        print(f"Please ensure you have write permissions to {output_path}")
-        return None
+# Basic Data Information
+print("\n=== Basic Dataset Information ===")
+print(df.info())
+print("\n=== Data Sample ===")
+print(df.head())
 
-    print(f"Analysis report has been saved to {output_path}")
-    
-    # Generate summary statistics
-    summary_stats = {
-        'Total Complaints': len(df),
-        'Average Resolution Time': f"{df['ResolutionTime'].mean():.2f} days",
-        'Open Cases': len(df[df['status'] == 'Open']),
-        'Closed Cases': len(df[df['status'] == 'Closed']),
-        'High Priority Cases': len(df[df['urgencyLevel'] == 'High']),
-        'Most Common Category': category_counts.index[0],
-        'Most Affected District': district_counts.index[0]
-    }
-    
-    return summary_stats
+# 1. Complaint Analysis
+print("\n=== Complaint Category Analysis ===")
+category_counts = df['category'].value_counts()
+print("\nTop 10 Complaint Categories:")
+print(category_counts.head(10))
 
-if __name__ == "__main__":
-    try:
-        # Path to your data file
-        data_path = 'E:\\ML\\Data\\combined_data.csv'
-        
-        # Run analysis
-        print("\nAnalyzing grievance data...")
-        stats = analyze_grievance_data(data_path)
-        
-        # Print summary
-        print("\nAnalysis Summary:")
-        for key, value in stats.items():
-            print(f"{key}: {value}")
-            
-        print("\nDetailed report has been generated. Please check the output HTML file.")
-        
-    except Exception as e:
-        print(f"Error: {str(e)}")
-        print("Please ensure:")
-        print("1. The data file exists at the specified path")
-        print("2. You have necessary permissions to read/write files")
-        print("3. Required Python packages are installed (pandas, plotly)")
+# Visualize complaint categories
+plt.figure(figsize=(12, 6))
+category_counts.head(10).plot(kind='bar')
+plt.title('Top 10 Complaint Categories')
+plt.xlabel('Category')
+plt.ylabel('Number of Complaints')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.savefig('complaint_categories.png')
+
+# 2. Status Analysis
+print("\n=== Complaint Status Analysis ===")
+status_counts = df['status'].value_counts()
+print(status_counts)
+
+# Visualize status distribution
+plt.figure(figsize=(8, 8))
+plt.pie(status_counts, labels=status_counts.index, autopct='%1.1f%%')
+plt.title('Complaint Status Distribution')
+plt.savefig('status_distribution.png')
+
+# 3. Resolution Time Analysis
+print("\n=== Resolution Time Analysis ===")
+print("Average Resolution Time:", df['ResolutionTime'].mean())
+print("Maximum Resolution Time:", df['ResolutionTime'].max())
+print("Minimum Resolution Time:", df['ResolutionTime'].min())
+
+# Visualize resolution time distribution
+plt.figure(figsize=(10, 6))
+sns.histplot(data=df, x='ResolutionTime', bins=30)
+plt.title('Distribution of Resolution Times')
+plt.xlabel('Resolution Time (days)')
+plt.ylabel('Count')
+plt.savefig('resolution_time_distribution.png')
+
+# 4. Geographic Analysis
+print("\n=== Geographic Distribution ===")
+district_counts = df['district'].value_counts()
+print("\nTop 10 Districts with Most Complaints:")
+print(district_counts.head(10))
+
+# Visualize geographic distribution
+plt.figure(figsize=(12, 6))
+district_counts.head(10).plot(kind='bar')
+plt.title('Top 10 Districts with Most Complaints')
+plt.xlabel('District')
+plt.ylabel('Number of Complaints')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.savefig('district_distribution.png')
+
+# 5. Impact Analysis
+print("\n=== Impact Analysis ===")
+urgency_counts = df['urgencyLevel'].value_counts()
+print("\nUrgency Level Distribution:")
+print(urgency_counts)
+
+# 6. Anonymous Complaints Analysis
+print("\n=== Anonymous Complaints Analysis ===")
+anonymous_counts = df['isAnonymous'].value_counts()
+print("\nAnonymous vs Non-Anonymous Complaints:")
+print(anonymous_counts)
+
+# 7. Department Analysis
+print("\n=== Department Assignment Analysis ===")
+dept_counts = df['departmentAssigned'].value_counts()
+print("\nTop 10 Departments with Most Complaints:")
+print(dept_counts.head(10))
+
+# 8. Emotion Analysis
+print("\n=== Emotion Analysis ===")
+emotion_counts = df['emotion'].value_counts()
+print("\nDistribution of Emotions:")
+print(emotion_counts)
+
+# Visualize emotion distribution
+plt.figure(figsize=(12, 6))
+emotion_counts.plot(kind='bar')
+plt.title('Distribution of Emotions in Complaints')
+plt.xlabel('Emotion')
+plt.ylabel('Count')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.savefig('emotion_distribution.png')
+
+# 9. Time Series Analysis
+df['CreatedAt'] = pd.to_datetime(df['CreatedAt'])
+complaints_over_time = df.groupby(df['CreatedAt'].dt.date).size()
+
+plt.figure(figsize=(15, 6))
+complaints_over_time.plot(kind='line')
+plt.title('Number of Complaints Over Time')
+plt.xlabel('Date')
+plt.ylabel('Number of Complaints')
+plt.tight_layout()
+plt.savefig('complaints_over_time.png')
+
+# 10. Correlation Analysis
+# Select numeric columns for correlation
+numeric_columns = df.select_dtypes(include=[np.number]).columns
+correlation_matrix = df[numeric_columns].corr()
+
+plt.figure(figsize=(12, 8))
+sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', center=0)
+plt.title('Correlation Matrix of Numeric Variables')
+plt.tight_layout()
+plt.savefig('correlation_matrix.png')
+
+# Save summary to a text file
+with open('analysis_summary.txt', 'w') as f:
+    f.write("=== Grievance Analysis Summary ===\n\n")
+    f.write(f"Total number of complaints: {len(df)}\n")
+    f.write(f"Date range: {df['CreatedAt'].min()} to {df['CreatedAt'].max()}\n")
+    f.write(f"Average resolution time: {df['ResolutionTime'].mean():.2f} days\n")
+    f.write(f"Most common category: {category_counts.index[0]}\n")
+    f.write(f"Most common department: {dept_counts.index[0]}\n")
+    f.write(f"Most common emotion: {emotion_counts.index[0]}\n")
+    f.write(f"\nStatus Distribution:\n{status_counts.to_string()}\n")
+    f.write(f"\nTop 5 Districts:\n{district_counts.head().to_string()}\n")
+
+print("\nAnalysis complete! Check the generated plots and analysis_summary.txt for detailed results.")

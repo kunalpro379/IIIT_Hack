@@ -1,0 +1,22 @@
+position,email,date_joined,contact_number
+Field Worker,arun.kumar@up.gov.in,2023-12-01,9876543210
+Site Engineer,sunita.sharma@up.gov.in,2023-12-01,9876543211
+Technician,rajesh.singh@up.gov.in,2023-12-01,9876543212
+Supervisor,meera.verma@up.gov.in,2023-12-01,9876543213
+Manager,amitabh.joshi@up.gov.in,2023-12-01,9876543214
+worker1.dept1@up.gov.in,1,Field Officer,2025-01-01,9451000001
+worker2.dept1@up.gov.in,1,Technical Assistant,2025-01-01,9451000002
+worker3.dept1@up.gov.in,1,Administrator,2025-01-01,9451000003
+worker4.dept1@up.gov.in,1,Field Supervisor,2025-01-01,9451000004
+worker5.dept1@up.gov.in,1,Support Staff,2025-01-01,9451000005
+worker1.dept8@up.gov.in,8,Field Officer,2025-01-01,9451000041
+worker2.dept8@up.gov.in,8,Technical Assistant,2025-01-01,9451000042
+worker3.dept8@up.gov.in,8,Administrator,2025-01-01,9451000043
+worker4.dept8@up.gov.in,8,Field Supervisor,2025-01-01,9451000044
+worker5.dept8@up.gov.in,8,Support Staff,2025-01-01,9451000045
+worker1.dept27@up.gov.in,27,Field Officer,2025-01-01,9451000136
+worker2.dept27@up.gov.in,27,Technical Assistant,2025-01-01,9451000137
+worker3.dept27@up.gov.in,27,Administrator,2025-01-01,9451000138
+worker4.dept27@up.gov.in,27,Field Supervisor,2025-01-01,9451000139
+worker5.dept27@up.gov.in,27,Support Staff,2025-01-01,9451000140
+// ... Continue similar pattern for all 50 departments with 5 workers each
