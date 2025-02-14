@@ -30,7 +30,7 @@ function App() {
   };
 
   return (
-    <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
+    <ThemeProvider defaultTheme="light">
       <BrowserRouter>
         <Routes>
           <Route 
@@ -41,13 +41,13 @@ function App() {
           {isAuthenticated ? (
             <Route element={<Layout userRole={userRole} onLogout={handleLogout} />}>
               <Route index element={<Navigate to="/dashboard" replace />} />
-              <Route path="dashboard" element={<Dashboard userAuth={userData} />} />
-              <Route path="grievances" element={<GrievanceList />} />
-              <Route path="heatmap" element={<AreaHeatmap />} />
-              <Route path="chat" element={<Chat />} />
-              <Route path="announcements" element={<Announcements userRole={userRole} />} />
-              <Route path="tasks" element={<TaskManagement />} />
-              <Route path="feedback" element={<Feedback />} />
+              <Route path="/dashboard" element={<Dashboard userAuth={userData} />} />
+              <Route path="/grievances" element={<GrievanceList />} />
+              <Route path="/heatmap" element={<AreaHeatmap />} />
+              <Route path="/chat" element={<Chat />} />
+              <Route path="/announcements" element={<Announcements userRole={userRole} />} />
+              <Route path="/tasks" element={<TaskManagement />} />
+              <Route path="/feedback" element={<Feedback />} />
               <Route path="*" element={<Navigate to="/dashboard" replace />} />
             </Route>
           ) : (

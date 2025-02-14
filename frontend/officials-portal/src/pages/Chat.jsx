@@ -70,9 +70,9 @@ function Chat() {
   };
 
   return (
-    <div className="flex h-[calc(100vh-2rem)] bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+    <div className="flex flex-col md:flex-row h-[calc(100vh-2rem)] bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
       {/* Sidebar */}
-      <div className="w-80 border-r border-gray-200 dark:border-gray-700">
+      <div className="w-full md:w-80 border-r border-gray-200 dark:border-gray-700">
         <div className="p-4">
           <div className="relative">
             <input
@@ -206,4 +206,3 @@ function Chat() {
 }
 
 export default Chat;
-

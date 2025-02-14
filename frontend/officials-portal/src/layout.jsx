@@ -53,7 +53,7 @@ function Layout({ userRole, onLogout }) {
   };
 
   return (
-    <div className="flex h-screen bg-[#1a1a1a] transition-colors duration-300 relative">
+    <div className="flex h-screen bg-gray-100 transition-colors duration-300 relative">
       {/* Sidebar with higher z-index */}
       <div className={`${isSidebarCollapsed ? 'w-20' : 'w-64'} bg-[#2d2d2d] border-r border-[#3d3d3d] transition-all duration-300 ease-in-out flex flex-col z-30 relative`}>
         {/* Logo section */}
@@ -63,7 +63,7 @@ function Layout({ userRole, onLogout }) {
           ) : (
             <>
               <Logo />
-              <ThemeToggle />
+              {/* <ThemeToggle /> */}
             </>
           )}
         </div>
@@ -112,7 +112,7 @@ function Layout({ userRole, onLogout }) {
       </div>
 
       {/* Main content */}
-      <div className="flex-1 overflow-auto bg-[#1a1a1a] relative">
+      <div className="flex-1 overflow-auto relative">
         <div className="p-8">
           {/* Profile button with higher z-index */}
           <div className="absolute top-4 right-4 z-40">

@@ -72,17 +72,13 @@ const Dashboard = ({ userAuth }) => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#2a2a2a] to-[#1a1a1a] transition-colors duration-300 dark: bg-black/40 ">
-      {/* Background Pattern */}
-      <div className="fixed inset-0 z-0 opacity-5">
-        <div className="absolute inset-0 bg-pattern"></div>
-      </div>
+    <div className="min-h-screen duration-300">
 
       {/* Content Container */}
       <div className="relative z-10">
         {/* Header */}
-        <div className="bg-black/40 backdrop-blur-sm rounded-lg shadow-lg p-4 mb-6 flex justify-between items-center border border-white/5">
-          <div className="flex-1 max-w-xl">
+        <div className="bg-black/90 backdrop-blur-sm rounded-lg shadow-lg p-4 mb-6 flex flex-col md:flex-row justify-between items-center border border-white/5">
+          <div className="flex-1 max-w-xl w-full mb-4 md:mb-0">
             <div className="relative">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 dark:text-gray-500" />
               <input
@@ -96,7 +92,7 @@ const Dashboard = ({ userAuth }) => {
           </div>
           
           <div className="flex items-center gap-4">
-            <ThemeToggle />
+            {/* <ThemeToggle /> */}
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
@@ -115,7 +111,7 @@ const Dashboard = ({ userAuth }) => {
               onClick={() => setShowProfile(!showProfile)}
             >
               <UserCircle className="h-6 w-6 text-gray-600 dark:text-gray-300" />
-              <span className="text-sm font-medium dark:text-gray-200">
+              <span className="text-white text-sm font-medium dark:text-gray-200">
                 {userAuth?.username || 'Admin'}
               </span>
             </motion.div>
@@ -144,14 +140,13 @@ const Dashboard = ({ userAuth }) => {
 
                 {/* Content */}
                 <div className="relative z-10 flex items-center justify-between">
-                  <div>
+                  <div className='flex items-center gap-4 justify-center flex-col md:flex-row'>
                     <h1 className="text-3xl font-bold text-white mb-2">
                       Welcome back, {userAuth?.username || 'Admin'}
                     </h1>
                     <p className="text-white/80">
                       Here's what's happening in your jurisdiction today
                     </p>
-                  </div>
                   <motion.button 
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
@@ -161,11 +156,12 @@ const Dashboard = ({ userAuth }) => {
                     <UserCircle size={20} />
                     View Profile
                   </motion.button>
+                  </div>
                 </div>
               </div>
               
               {/* Quick Stats Bar */}
-              <div className="bg-[#252525] border-t border-[#3d3d3d] p-4 grid grid-cols-3 gap-4">
+              <div className="bg-[#252525] border-t border-[#3d3d3d] p-4 grid grid-cols-1 sm:grid-cols-3 gap-4">
                 {[
                   { label: 'New Grievances', value: '12', trend: '+2 today', color: 'text-purple-400' },
                   { label: 'Pending Actions', value: '5', trend: '3 urgent', color: 'text-amber-400' },
@@ -219,10 +215,10 @@ const Dashboard = ({ userAuth }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="text-center mb-8"
+            className="text-black text-center mb-8"
           >
-            <h2 className="text-2xl font-bold text-white mb-2">Platform Features</h2>
-            <p className="text-gray-400">Explore the tools and features available to you</p>
+            <h2 className="text-black text-2xl font-bold text-white mb-2">Platform Features</h2>
+            <p className="text=gray-800 text-gray-400">Explore the tools and features available to you</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -341,4 +337,3 @@ const Dashboard = ({ userAuth }) => {
 };
 
 export default Dashboard;
-
