@@ -45,8 +45,8 @@ const Navbar: React.FC<NavbarProps> = ({ language, setLanguage, theme, setTheme 
 
     { label: 'Statistics', path: '/statistics', icon: BarChart2 },
     { label: 'Announcements', path: '/announcements', icon: Megaphone },
-    { label: 'Community', path: '/community-polls', icon: Vote },
-    { label: 'Discussion', path: '/discussion-forum', icon: MessageCircle },
+ //   { label: 'Community', path: '/community-polls', icon: Vote },
+    { label: 'Community', path: '/discussion-forum', icon: MessageCircle },
   ];
 
   return (
