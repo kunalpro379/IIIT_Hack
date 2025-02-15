@@ -3,6 +3,7 @@
 import React from "react"
 import { useEffect } from 'react'
 import "leaflet/dist/leaflet.css"
+import L from 'leaflet'
 import dynamic from 'next/dynamic'
 import * as topojson from 'topojson-client'
 import type { Geometry, GeometryCollection } from 'geojson'
@@ -20,6 +21,16 @@ const TileLayer = dynamic(
 
 const GeoJSON = dynamic(
   () => import('react-leaflet').then(mod => ({ default: mod.GeoJSON })),
+  { ssr: false }
+)
+
+const Marker = dynamic(
+  () => import('react-leaflet').then(mod => ({ default: mod.Marker })),
+  { ssr: false }
+)
+
+const Popup = dynamic(
+  () => import('react-leaflet').then(mod => ({ default: mod.Popup })),
   { ssr: false }
 )
 
@@ -144,6 +155,41 @@ const RegionwiseTaskDensity: React.FC = () => {
     }
   }
 
+  const getMarkerColor = (density: number): string => {
+    if (density > 140) return 'red';
+    if (density > 80) return 'orange';
+    if (density > 40) return 'yellow';
+    return 'green';
+  };
+
+  const createCustomIcon = (density: number) => {
+    if (typeof window === 'undefined') return null;
+    
+    return new L.DivIcon({
+      className: 'custom-icon',
+      html: `
+        <div style="
+          background-color: ${getMarkerColor(density)};
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+          border: 2px solid white;
+          box-shadow: 0 0 4px rgba(0,0,0,0.4);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: ${density > 80 ? 'white' : 'black'};
+          font-size: 10px;
+          font-weight: bold;
+        ">
+          ${density}
+        </div>
+      `,
+      iconSize: [24, 24],
+      iconAnchor: [12, 12]
+    });
+  };
+
   // Don't render map during SSR
   if (typeof window === 'undefined') {
     return <div>Loading map...</div>
@@ -172,14 +218,71 @@ const RegionwiseTaskDensity: React.FC = () => {
                 data={upGeoJson}
                 style={style}
                 onEachFeature={(feature, layer) => {
-                  const districtName = feature.properties.district
-                  const density = taskDensityData[districtName] || 0
+                  const districtName = feature.properties.district;
+                  const density = taskDensityData[districtName] || 0;
+                  const officer = officerData[districtName] || 'Officer not assigned';
+                  
+                  layer.on({
+                    mouseover: (e) => {
+                      const layer = e.target;
+                      layer.setStyle({
+                        fillOpacity: 0.9,
+                        weight: 3,
+                        dashArray: '',
+                      });
+                    },
+                    mouseout: (e) => {
+                      const layer = e.target;
+                      layer.setStyle({
+                        fillOpacity: 0.7,
+                        weight: 2,
+                        dashArray: '3',
+                      });
+                    },
+                    click: (e) => {
+                      const map = e.target._map;
+                      map.fitBounds(e.target.getBounds());
+                    }
+                  });
+
                   layer.bindTooltip(
-                    `${districtName}: ${density} grievances`,
-                    { permanent: false, sticky: true }
-                  )
+                    `<div class="text-sm font-semibold">
+                      <p class="text-base">${districtName}</p>
+                      <p>Grievances: ${density}</p>
+                      <p>Officer: ${officer}</p>
+                    </div>`,
+                    { 
+                      permanent: false, 
+                      sticky: true,
+                      className: 'custom-tooltip'
+                    }
+                  );
                 }}
               />
+              {Object.entries(taskDensityData).map(([district, density]) => {
+                const feature = upGeoJson.features.find(
+                  f => f.properties.district === district
+                );
+                if (!feature) return null;
+
+                const center = (L as any).geoJSON(feature).getBounds().getCenter();
+                
+                return (
+                  <Marker 
+                    key={district}
+                    position={[center.lat, center.lng]}
+                    icon={createCustomIcon(density)}
+                  >
+                    <Popup>
+                      <div className="text-sm">
+                        <p className="font-bold">{district}</p>
+                        <p>Grievances: {density}</p>
+                        <p>Officer: {officerData[district] || 'Not assigned'}</p>
+                      </div>
+                    </Popup>
+                  </Marker>
+                );
+              })}
             </MapContainer>
           </React.Suspense>
         </div>
