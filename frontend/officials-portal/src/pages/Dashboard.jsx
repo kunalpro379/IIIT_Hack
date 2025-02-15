@@ -217,8 +217,8 @@ const Dashboard = ({ userAuth }) => {
             transition={{ duration: 0.5 }}
             className="text-black text-center mb-8"
           >
-            <h2 className="text-black text-2xl font-bold text-white mb-2">Platform Features</h2>
-            <p className="text=gray-800 text-gray-400">Explore the tools and features available to you</p>
+            <h2 className="text-black text-2xl font-bold mb-2">Platform Features</h2>
+            <p className="text-gray-800 text-gray-400">Explore the tools and features available to you</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

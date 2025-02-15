@@ -334,9 +334,9 @@ const GrievanceList = () => {
     <div className="space-y-6">
       {/* Stats Overview */}
       <div className="grid grid-cols-4 gap-4">
-        <div className="bg-white dark:bg-dark-card rounded-lg p-4 shadow-lg">
-          <div className="text-sm text-gray-500 dark:text-gray-400">Total</div>
-          <div className="text-2xl font-bold text-gray-900 dark:text-white">{stats.total}</div>
+        <div className="bg-dark-card rounded-lg p-4 shadow-lg">
+          <div className="text-sm text-white">Total</div>
+          <div className="text-2xl font-bold text-white ">{stats.total}</div>
         </div>
         <div className="bg-yellow-50 dark:bg-yellow-900/20 rounded-lg p-4 shadow-lg">
           <div className="text-sm text-yellow-600 dark:text-yellow-400">Pending</div>
@@ -356,18 +356,18 @@ const GrievanceList = () => {
       <GrievanceFilterBar filters={filters} setFilters={setFilters} />
 
       {/* Grievance List and Timeline */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 h-[calc(100vh-280px)] relative">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 relative">
         {/* Grievances List */}
-        <div className="lg:col-span-2 space-y-4 overflow-y-auto pr-4 scrollbar-none">
+        <div className="space-y-4 overflow-y-auto pr-4 scrollbar-none">
           {filteredGrievances.map((grievance) => (
             <motion.div
               key={grievance.id}
-              className="bg-white dark:bg-dark-card rounded-lg p-6 shadow-lg"
+              className="bg-dark-card text-white rounded-lg p-6 shadow-lg"
               whileHover={{ scale: 1.01 }}
             >
               <div className="flex justify-between items-start mb-4">
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-100">
+                  <h3 className="text-lg text-white font-semibold text-gray-800 dark:text-gray-100">
                     {grievance.title}
                   </h3>
                   <p className="text-sm text-gray-600 dark:text-gray-400">
@@ -465,12 +465,12 @@ const GrievanceList = () => {
         </div>
 
         {/* Vertical Dotted Divider - updated style */}
-        <div className="hidden lg:block absolute right-[33.33%] top-0 bottom-0 w-px">
+        <div className="text-black lg:block absolute right-[33.33%] top-0 bottom-0 w-px">
           <div className="h-full w-full border-l-2 border-dotted border-white dark:border-gray-500 opacity-70"></div>
         </div>
 
         {/* Timeline Panel with no visible scrollbar */}
-        <div className="lg:col-span-1 sticky top-0 h-[calc(100vh-80px)] overflow-y-auto scrollbar-none pl-4">
+        <div className="lg:col-span-1 sticky top-0 overflow-y-auto scrollbar-none pl-4">
           <Timeline data={selectedGrievance?.timeline || []} />
         </div>
       </div>

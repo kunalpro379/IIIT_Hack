@@ -10,7 +10,7 @@ const GrievanceFilterBar = ({ filters, setFilters }) => {
     <div className="bg-white dark:bg-dark-card rounded-lg p-4 shadow-md border border-gray-200 dark:border-dark-border">
       <div className="flex items-center gap-4 flex-wrap">
         {/* Filter Icon */}
-        <div className="flex items-center gap-2">
+        <div className="bg-blue-900/20 p-3 rounded-lg flex items-center gap-2">
           <Filter className="w-5 h-5 text-gray-500 dark:text-gray-400" />
           <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Filters</span>
         </div>
@@ -19,9 +19,8 @@ const GrievanceFilterBar = ({ filters, setFilters }) => {
         <select
           value={filters.status}
           onChange={(e) => setFilters({ ...filters, status: e.target.value })}
-          className="px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-600 
-            bg-white dark:bg-dark-bg text-gray-700 dark:text-gray-200
-            focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400
+          className="text-white px-3 py-2 rounded-lg border border-gray-600 
+            bg-blue-900 focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400
             hover:border-gray-400 dark:hover:border-gray-500 transition-colors"
         >
           {statuses.map(status => (
