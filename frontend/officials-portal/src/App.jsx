@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Login from "./components/Login";
 import Dashboard from "./pages/Dashboard";
 import React from "react";
-import Layout from "./Layout"; // Fixed import path
+import Layout from "./Layout";
 import GrievanceList from "./components/GrievanceList";
 import AreaHeatmap from "./pages/AreaHeatmap";
 import Chat from "./pages/Chat";
@@ -29,6 +29,25 @@ function App() {
     setUserData(null);
   };
 
+  const grievances = [
+    {
+      id: 1,
+      title: "Broken Street Light",
+      category: "Infrastructure",
+      status: "Pending",
+      description: "The street light near the park is broken for weeks.",
+      attachments: [{ name: "image1.pdf", url: "https://example.com/image1.pdf" }],
+    },
+    {
+      id: 2,
+      title: "Water Leakage Issue",
+      category: "Water Supply",
+      status: "Resolved",
+      description: "There is a major water leakage near the main road.",
+      attachments: [{ name: "report.pdf", url: "https://example.com/report.pdf" }],
+    },
+  ];
+
   return (
     <ThemeProvider defaultTheme="light">
       <BrowserRouter>
@@ -42,7 +61,7 @@ function App() {
             <Route element={<Layout userRole={userRole} onLogout={handleLogout} />}>
               <Route index element={<Navigate to="/dashboard" replace />} />
               <Route path="/dashboard" element={<Dashboard userAuth={userData} />} />
-              <Route path="/grievances" element={<GrievanceList />} />
+              <Route path="/grievances" element={<GrievanceList grievances={grievances} />} />
               <Route path="/heatmap" element={<AreaHeatmap />} />
               <Route path="/chat" element={<Chat />} />
               <Route path="/announcements" element={<Announcements userRole={userRole} />} />
