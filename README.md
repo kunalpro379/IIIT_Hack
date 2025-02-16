@@ -6,7 +6,7 @@ UP-IGRS is a comprehensive, AI-powered grievance management system designed for 
 
 ## 🏢 System Architecture Diagram
 
-![UP-IGRS System Architecture](.image.png)
+![UP-IGRS System Architecture](./image.png)
 
 ## 🏗️ System Architecture
 
