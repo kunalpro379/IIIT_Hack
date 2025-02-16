@@ -4,6 +4,10 @@
 
 UP-IGRS is a comprehensive, AI-powered grievance management system designed for Uttar Pradesh. It combines advanced machine learning capabilities with a user-friendly interface to streamline the process of submitting, tracking, and resolving citizen grievances.
 
+## 🏢 System Architecture Diagram
+
+![UP-IGRS System Architecture](.image.png)
+
 ## 🏗️ System Architecture
 
 The project is divided into three main components:
@@ -94,10 +98,6 @@ Each component has its own detailed documentation:
 - Python 3.8+
 - PostgreSQL 13+
 - GPU for ML components (recommended)
-
-
-
-
 
 ## 🤝 Contributing
 
