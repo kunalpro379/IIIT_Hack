@@ -98,17 +98,3 @@ Each component has its own detailed documentation:
 - PostgreSQL 13+
 - GPU for ML components (recommended)
 
-## 🤝 Contributing
-
-Please read our [Contributing Guidelines](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- IIIT Hyderabad
-- UP Government
-- Development Team
-- Contributors and Supporters
